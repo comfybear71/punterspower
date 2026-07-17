@@ -25,7 +25,7 @@ const topics = [
     impact:
       "Surveillance infrastructure is expensive to buy and run — paid for through taxes, contracts, and rates — while households still carry rising fuel, rego, insurance, and fine pressure.",
     ppa: "We publish plain-English explainers on how plate cameras work, what questions to ask local councils and agencies, and how members can share verified reports without fear-mongering. Awareness first, then collective pushback for clear limits, retention rules, and public accountability.",
-    media: [assets.ppaLogo, assets.clipPower] as PpaMediaAsset[],
+    media: [assets.clipCheckout, assets.clipPower] as PpaMediaAsset[],
   },
   {
     id: "palantir",
