@@ -66,37 +66,9 @@ export const assets = {
     alt: "Campaign clip about supermarket prices",
     caption: "Checkout reality check",
   },
-  clipResources: {
-    type: "video" as const,
-    src: "/assets/grok-video-d00cb6ae-ae82-42ac-8300-e21d859a50da.mp4",
-    poster: "/assets/grok-ed3b816d-58f1-49ab-82f2-d9c3a2aae5ea.jpg",
-    alt: "Campaign clip on resources and fair share",
-    caption: "Resources leave. Bills stay.",
-  },
-  clipDuopoly: {
-    type: "video" as const,
-    src: "/assets/grok-video-c81a36f2-34c7-4621-abba-d3da4d690469.mp4",
-    poster: "/assets/grok-23e2e4c1-691b-4024-8cfa-292ee59f2884.jpg",
-    alt: "Campaign clip on supermarket duopoly",
-    caption: "Duopoly dollars vs family budgets",
-  },
-  clipPower: {
-    type: "video" as const,
-    src: "/assets/grok-video-ddbc42f2-6964-4a36-8982-b4cd80ce5185.mp4",
-    poster: "/assets/grok-ed3b816d-58f1-49ab-82f2-d9c3a2aae5ea.jpg",
-    alt: "PPA power and solidarity campaign clip",
-    caption: "Punter Power — mates helping mates",
-  },
-  clipMessage: {
-    type: "video" as const,
-    src: "/assets/grok-video-e025b77e-b769-4656-afa2-ca3a89bdf465.mp4",
-    poster: "/assets/grok-7d2ee4d9-5932-493d-bd79-a8666a870b31.jpg",
-    alt: "Campaign clip for spreading the message",
-    caption: "Phone + truth = media",
-  },
 };
 
-/** Curated Mass Media Power gallery: 6 images + 2 videos */
+/** Curated Mass Media Power gallery: images + 2 keeper videos */
 export const mediaGalleryItems: PpaMediaAsset[] = [
   assets.wooliesColes,
   assets.bulkHacks,
@@ -105,5 +77,5 @@ export const mediaGalleryItems: PpaMediaAsset[] = [
   assets.aldiShopping,
   assets.unitPrice,
   assets.clipCheckout,
-  assets.clipDuopoly,
+  assets.heroVideo,
 ];

@@ -25,7 +25,7 @@ const topics = [
     impact:
       "Surveillance infrastructure is expensive to buy and run — paid for through taxes, contracts, and rates — while households still carry rising fuel, rego, insurance, and fine pressure.",
     ppa: "We publish plain-English explainers on how plate cameras work, what questions to ask local councils and agencies, and how members can share verified reports without fear-mongering. Awareness first, then collective pushback for clear limits, retention rules, and public accountability.",
-    media: [assets.clipCheckout, assets.clipPower] as PpaMediaAsset[],
+    media: [assets.clipCheckout, assets.heroVideo] as PpaMediaAsset[],
   },
   {
     id: "palantir",
@@ -40,7 +40,7 @@ const topics = [
     impact:
       "When risk scores and fused profiles feed decisions, mistakes hit hardest on people already doing it tough — more friction accessing help, more “computer says no,” more time unpaid fixing bureaucracy.",
     ppa: "We track public reporting on major data platforms in Australia, translate vendor jargon into mate-speak, and build tools so members know what to request under FOI / privacy rights. Collective pushback means asking for purpose limits, audit trails, and human review — not blank-cheque surveillance.",
-    media: [assets.clipResources, assets.clipPower] as PpaMediaAsset[],
+    media: [assets.ppaLogo, assets.heroVideo] as PpaMediaAsset[],
   },
   {
     id: "face-data",
@@ -55,7 +55,7 @@ const topics = [
     impact:
       "Tracking fuels dynamic pricing, sharper insurance underwriting, and ad pressure that pushes debt products when households are already stretched. Loss of freedom isn’t only cameras — it’s fewer real choices when the algorithm knows your weak spots.",
     ppa: "We ship privacy hygiene guides (settings, permissions, broker opt-outs where they exist), share “what to refuse” checklists for venues and apps, and push for alternatives that don’t require trading dignity for a discount. Grow together means skills, not shame.",
-    media: [assets.unitPrice, assets.clipMessage] as PpaMediaAsset[],
+    media: [assets.unitPrice, assets.clipCheckout] as PpaMediaAsset[],
   },
   {
     id: "connects",
@@ -71,7 +71,7 @@ const topics = [
     impact:
       "The pattern is simple: they’re watching and profiting — through contracts, ads, premiums, and platform rent — while everyday Aussies pay in cash, time, and autonomy.",
     ppa: "PPA connects the dots in member briefings, funds practical guides, and backs collective pushback for transparency and fairer defaults. If we don’t go, nobody goes — so we organise before the next system quietly expands.",
-    media: [assets.wooliesColes, assets.clipDuopoly] as PpaMediaAsset[],
+    media: [assets.wooliesColes, assets.heroVideo] as PpaMediaAsset[],
   },
 ];
 
