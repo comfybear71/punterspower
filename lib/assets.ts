@@ -66,6 +66,14 @@ export const assets = {
     alt: "Campaign clip about supermarket prices",
     caption: "Checkout reality check",
   },
+  resourcesExample: {
+    type: "video" as const,
+    src: "/assets/grok-video-49d4e004-4303-4d7d-8206-dbf1a8a277ef.mp4",
+    poster: "/assets/grok-23e2e4c1-691b-4024-8cfa-292ee59f2884.jpg",
+    alt: "Example clip — dig it up, ship it out, still flogged at checkout",
+    caption:
+      "Mate, we dig it up, ship it out — and somehow still get flogged at the checkout.",
+  },
 };
 
 /** Curated Mass Media Power gallery — images first for faster mobile load */
@@ -78,7 +86,7 @@ export const mediaGalleryItems: PpaMediaAsset[] = [
   assets.unitPrice,
 ];
 
-/** Optional clips — loaded only where needed, preload none */
+/** Supporting clips (featured resources example is shown above scripts) */
 export const mediaGalleryVideos: PpaMediaAsset[] = [
   assets.clipCheckout,
   assets.heroVideo,

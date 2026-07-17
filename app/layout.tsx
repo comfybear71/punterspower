@@ -4,6 +4,7 @@ import { AIAssistant } from "@/components/ai/AIAssistant";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ValuesRibbon } from "@/components/ValuesRibbon";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -82,6 +83,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col font-sans">
         <ThemeProvider>
           <Navbar />
+          <ValuesRibbon />
           <main className="flex-1">{children}</main>
           <Footer />
           <AIAssistant />

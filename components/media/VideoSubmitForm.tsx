@@ -1,16 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 
 const SUBMIT_EMAIL = "hello@punterspower.au";
 
-export function VideoSubmitForm() {
+function VideoSubmitFormInner() {
+  const searchParams = useSearchParams();
+  const topicFromUrl = searchParams.get("topic") ?? "";
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [link, setLink] = useState("");
   const [platform, setPlatform] = useState("");
   const [notes, setNotes] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (topicFromUrl) {
+      setNotes((current) => current || topicFromUrl);
+    }
+  }, [topicFromUrl]);
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -23,9 +33,10 @@ export function VideoSubmitForm() {
         `Email: ${email.trim() || "—"}`,
         `Platform: ${platform || "—"}`,
         `Video link: ${link.trim()}`,
-        `Notes: ${notes.trim() || "—"}`,
+        `Topic / notes: ${notes.trim() || "—"}`,
         "",
         "Tag: #PunterPower",
+        "Values: No one left behind. We grow together.",
       ].join("\n"),
     );
 
@@ -41,15 +52,17 @@ export function VideoSubmitForm() {
         </p>
         <p className="mt-3 text-base leading-relaxed text-ppa-cream/85">
           Your email app should open with the video details. Send it through
-          and we&apos;ll amplify the strongest clips. Keep filming. No one left
-          behind.
+          and we&apos;ll amplify the strongest clips. Keep filming.
+        </p>
+        <p className="mt-4 font-display text-sm font-semibold uppercase tracking-[0.16em] text-ppa-gold-soft">
+          No one left behind. We grow together.
         </p>
         <button
           type="button"
           onClick={() => {
             setSubmitted(false);
             setLink("");
-            setNotes("");
+            setNotes(topicFromUrl);
           }}
           className="mt-6 inline-flex min-h-11 items-center justify-center bg-ppa-gold px-5 text-sm font-bold uppercase tracking-wide text-[#121212] transition hover:bg-ppa-gold-soft"
         >
@@ -63,19 +76,18 @@ export function VideoSubmitForm() {
     <form
       onSubmit={handleSubmit}
       id="submit-form"
-      className="border border-ppa-red/40 bg-surface p-5 sm:p-8"
+      className="border-2 border-ppa-red/50 bg-surface p-5 shadow-[0_0_0_1px_rgba(212,160,23,0.15)] sm:p-8"
     >
       <p className="font-display text-sm font-semibold uppercase tracking-[0.22em] text-ppa-red">
-        Submit your video
+        Quick submit
       </p>
       <h3 className="mt-2 font-display text-2xl font-bold uppercase leading-none tracking-tight sm:text-3xl">
-        Send link or email PPA
+        Send your video to PPA
       </h3>
       <p className="mt-3 text-sm text-ink-muted sm:text-base">
-        Paste your TikTok, FB, Insta, X, or YouTube link. We&apos;ll open an
-        email to{" "}
+        Paste your TikTok, FB, Insta, X, or YouTube link. We open an email to{" "}
         <span className="font-semibold text-foreground">{SUBMIT_EMAIL}</span>{" "}
-        so you can hit send.
+        — you hit send.
       </p>
 
       <div className="mt-6 space-y-3 sm:space-y-4">
@@ -148,5 +160,24 @@ export function VideoSubmitForm() {
         </button>
       </div>
     </form>
+  );
+}
+
+function FormFallback() {
+  return (
+    <div className="border-2 border-ppa-red/50 bg-surface p-5 sm:p-8">
+      <p className="font-display text-sm font-semibold uppercase tracking-[0.22em] text-ppa-red">
+        Quick submit
+      </p>
+      <p className="mt-3 text-sm text-ink-muted">Loading form…</p>
+    </div>
+  );
+}
+
+export function VideoSubmitForm() {
+  return (
+    <Suspense fallback={<FormFallback />}>
+      <VideoSubmitFormInner />
+    </Suspense>
   );
 }

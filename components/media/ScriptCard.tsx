@@ -7,11 +7,19 @@ type ScriptCardProps = {
   topic: string;
   duration: string;
   lines: string[];
+  id?: string;
 };
 
-export function ScriptCard({ index, topic, duration, lines }: ScriptCardProps) {
+export function ScriptCard({
+  index,
+  topic,
+  duration,
+  lines,
+  id,
+}: ScriptCardProps) {
   const [copied, setCopied] = useState(false);
   const fullScript = lines.join("\n\n");
+  const filmHref = `/media?topic=${encodeURIComponent(topic)}#submit`;
 
   async function copyScript() {
     try {
@@ -24,9 +32,12 @@ export function ScriptCard({ index, topic, duration, lines }: ScriptCardProps) {
   }
 
   return (
-    <article className="border border-line border-l-4 border-l-ppa-red bg-surface-muted p-4 sm:p-6">
+    <article
+      id={id}
+      className="scroll-mt-24 border border-line border-l-4 border-l-ppa-red bg-surface-muted p-4 sm:p-6"
+    >
       <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
+        <div className="min-w-0 flex-1">
           <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-ppa-gold">
             Script {String(index).padStart(2, "0")} · {duration}
           </p>
@@ -42,9 +53,13 @@ export function ScriptCard({ index, topic, duration, lines }: ScriptCardProps) {
           {copied ? "Copied" : "Copy script"}
         </button>
       </div>
+
       <ol className="mt-4 space-y-3">
         {lines.map((line, lineIndex) => (
-          <li key={line} className="flex gap-3 text-sm leading-relaxed sm:text-base">
+          <li
+            key={line}
+            className="flex gap-3 text-sm leading-relaxed sm:text-base"
+          >
             <span className="font-display font-bold text-ppa-red">
               {lineIndex + 1}.
             </span>
@@ -60,6 +75,18 @@ export function ScriptCard({ index, topic, duration, lines }: ScriptCardProps) {
           </li>
         ))}
       </ol>
+
+      <div className="mt-5 flex flex-col gap-3 border-t border-line pt-5 sm:flex-row sm:items-center">
+        <a
+          href={filmHref}
+          className="inline-flex min-h-12 flex-1 items-center justify-center bg-ppa-red px-5 text-sm font-bold uppercase tracking-wide text-ppa-cream transition hover:bg-[#a50e19] sm:text-base"
+        >
+          Film Your Version
+        </a>
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.14em] text-ppa-gold sm:max-w-[11rem] sm:text-left">
+          No one left behind · We grow together
+        </p>
+      </div>
     </article>
   );
 }

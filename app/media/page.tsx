@@ -4,10 +4,16 @@ import {
   ContentGenerator,
   mediaPresets,
 } from "@/components/ai/ContentGenerator";
+import { FeaturedExampleVideo } from "@/components/media/FeaturedExampleVideo";
 import { Gallery } from "@/components/media/Gallery";
 import { ScriptCard } from "@/components/media/ScriptCard";
 import { VideoSubmitForm } from "@/components/media/VideoSubmitForm";
-import { mediaGalleryItems, mediaGalleryVideos } from "@/lib/assets";
+import {
+  assets,
+  mediaGalleryItems,
+  mediaGalleryVideos,
+} from "@/lib/assets";
+import { videoScripts } from "@/lib/media-scripts";
 
 export const metadata: Metadata = {
   title: "Mass Media Power — Ready Video Scripts",
@@ -47,6 +53,7 @@ const topicsThatWork = [
   "Medical gaps",
   "Supermarket duopoly",
   "Indigenous empowerment",
+  "Your topic next",
 ];
 
 const steps = [
@@ -58,12 +65,12 @@ const steps = [
   {
     title: "Pick a topic that works",
     detail:
-      "One topic per clip — resources, housing, surveillance, medical gaps, supermarket prices, or Indigenous empowerment.",
+      "One topic per clip — resources, housing, surveillance, medical gaps, supermarket prices, Indigenous empowerment, or whatever hits home for punters.",
   },
   {
     title: "End every video with the CTA",
     detail:
-      "Say it clear: “Join at punterspower.au — No one left behind.” Same close every time so it sticks.",
+      "Say it clear: “Join at punterspower.au — No one left behind. We grow together.” Same close every time so it sticks.",
   },
   {
     title: "Post everywhere + hit the hashtags",
@@ -74,63 +81,6 @@ const steps = [
     title: "Submit your video to PPA",
     detail:
       "Send the link via the form below. We share and amplify the best ones across the community.",
-  },
-];
-
-const scripts = [
-  {
-    topic: "Resources sell-off & sovereign wealth",
-    duration: "~30s",
-    lines: [
-      "Mate, we dig it up, ship it out — and somehow still get flogged at the checkout.",
-      "Australia’s sitting on serious wealth. Everyday punters get the price of living. Ask what stays here for wages, hospitals, regions — a fair share, not a farewell tour.",
-      "Join at punterspower.au — No one left behind. We grow together.",
-    ],
-  },
-  {
-    topic: "Housing crisis for everyday punters",
-    duration: "~25s",
-    lines: [
-      "You can work full-time and still lose the roof race. That’s not a vibe — that’s a fortnight eaten before groceries.",
-      "Rent. Mortgage. Bond. Same story in every suburb. Say your suburb. Say your hit. Make it real.",
-      "Join at punterspower.au — No one left behind.",
-    ],
-  },
-  {
-    topic: "Surveillance — Flock cameras + Palantir",
-    duration: "~35s",
-    lines: [
-      "Your number plate’s becoming a timeline. ANPR cameras watch the roads. Big-data platforms stitch ordinary trips into searchable history.",
-      "Marketed as safety. Paid for by us. Ask about retention. Ask who gets the data. Keep it factual — not conspiracy theatre.",
-      "Join at punterspower.au — No one left behind. If we don’t go, nobody goes.",
-    ],
-  },
-  {
-    topic: "Medical insurance gaps",
-    duration: "~30s",
-    lines: [
-      "Private cover and still copping a gap fee — explain that to the kids.",
-      "No-gap isn’t automatic. Ask what’s covered. Get the out-of-pocket in writing before they start. Shame helps no one — sharing the tip does.",
-      "Join at punterspower.au — No one left behind. We grow together.",
-    ],
-  },
-  {
-    topic: "Supermarket duopoly",
-    duration: "~25s",
-    lines: [
-      "Two giants. One trolley. Same shock at the register every week.",
-      "Check the unit price per 100 grams. Specials aren’t always special. Share one move that actually saved you money this week.",
-      "Join at punterspower.au — No one left behind.",
-    ],
-  },
-  {
-    topic: "Indigenous empowerment",
-    duration: "~35s",
-    lines: [
-      "Empowerment isn’t a slogan — it’s seats at the table and resources that stick.",
-      "First Nations communities deserve real power over outcomes that affect them: housing, health, jobs, decisions. Same rule as every punter — dignity first. Nobody left behind.",
-      "Join at punterspower.au — We are all the same. We grow together.",
-    ],
   },
 ];
 
@@ -163,8 +113,11 @@ export default function MediaPage() {
             truth.
           </p>
           <p className="mt-3 max-w-2xl text-base text-ppa-cream/80 sm:mt-4 sm:text-lg">
-            Six ready scripts. Fifteen to forty-five seconds. Raw, honest,
+            Ready scripts. Fifteen to forty-five seconds. Raw, honest,
             actionable — then join at punterspower.au.
+          </p>
+          <p className="mt-4 font-display text-sm font-semibold uppercase tracking-[0.18em] text-ppa-gold">
+            No one left behind. We grow together.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">
             <a
@@ -201,36 +154,80 @@ export default function MediaPage() {
               they&apos;re not alone.
             </p>
             <p className="font-semibold text-ppa-green dark:text-ppa-gold-soft">
-              You don&apos;t need to be perfect. You just need to be real. The
-              people are the power.
+              You don&apos;t need to be perfect. You just need to be real. No
+              one left behind. We grow together.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Ready Video Scripts — primary ask */}
-      <section id="scripts" className="scroll-mt-20 bg-surface-muted sm:scroll-mt-24">
+      <FeaturedExampleVideo
+        src={assets.resourcesExample.src}
+        poster={assets.resourcesExample.poster}
+        scriptHref="#script-resources"
+      />
+
+      {/* Ready Video Scripts */}
+      <section
+        id="scripts"
+        className="scroll-mt-20 bg-surface-muted sm:scroll-mt-24"
+      >
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-8 sm:py-20 lg:py-24">
           <p className="font-display text-sm font-semibold uppercase tracking-[0.22em] text-ppa-red">
             Ready video scripts
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold uppercase leading-none tracking-tight sm:text-5xl">
-            Six scripts. Say them out loud.
+            Grab a script. Film your version.
           </h2>
           <p className="mt-4 max-w-2xl text-base text-ink-muted sm:text-lg">
             Conrad / Punter&apos;s Politics energy — raw Aussie, facts first,
-            finish on a hard CTA. Copy, film, post. 15–45 seconds.
+            finish on a hard CTA. Copy, film, post. 15–45 seconds. More scripts
+            landing as the push grows.
           </p>
           <div className="mt-8 space-y-3 sm:mt-10 sm:space-y-4">
-            {scripts.map((script, index) => (
+            {videoScripts.map((script, index) => (
               <ScriptCard
                 key={script.topic}
                 index={index + 1}
                 topic={script.topic}
                 duration={script.duration}
                 lines={script.lines}
+                id={
+                  index === 0
+                    ? "script-resources"
+                    : `script-${index + 1}`
+                }
               />
             ))}
+
+            {/* Space for more scripts */}
+            <div className="border border-dashed border-ppa-gold/50 bg-surface p-5 sm:p-8">
+              <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-ppa-gold">
+                More scripts coming
+              </p>
+              <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-tight sm:text-2xl">
+                Got a topic? We&apos;ll write the next one.
+              </h3>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-muted sm:text-base">
+                Cost of living, regions, wages, health queues — if it hits
+                everyday punters, it belongs here. Suggest a topic when you
+                submit, or ask AI for a custom cut.
+              </p>
+              <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+                <a
+                  href="#submit"
+                  className="inline-flex min-h-12 items-center justify-center bg-ppa-red px-5 text-sm font-bold uppercase tracking-wide text-ppa-cream transition hover:bg-[#a50e19]"
+                >
+                  Suggest via submit
+                </a>
+                <a
+                  href="#generate"
+                  className="inline-flex min-h-12 items-center justify-center border border-line px-5 text-sm font-bold uppercase tracking-wide transition hover:border-ppa-gold"
+                >
+                  Generate a script
+                </a>
+              </div>
+            </div>
           </div>
           <p className="mt-8 text-sm text-ink-muted sm:text-base">
             Need a custom cut?{" "}
@@ -253,7 +250,10 @@ export default function MediaPage() {
       </section>
 
       {/* Step-by-step */}
-      <section id="film-now" className="scroll-mt-20 bg-ppa-green-deep text-ppa-cream sm:scroll-mt-24">
+      <section
+        id="film-now"
+        className="scroll-mt-20 bg-ppa-green-deep text-ppa-cream sm:scroll-mt-24"
+      >
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-8 sm:py-20 lg:py-24">
           <p className="font-display text-sm font-semibold uppercase tracking-[0.22em] text-ppa-gold">
             Step-by-step
@@ -342,7 +342,10 @@ export default function MediaPage() {
       </section>
 
       {/* Submit Your Video */}
-      <section id="submit" className="scroll-mt-20 bg-surface-muted sm:scroll-mt-24">
+      <section
+        id="submit"
+        className="scroll-mt-20 bg-surface-muted sm:scroll-mt-24"
+      >
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:gap-10 sm:px-8 sm:py-20 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-14 lg:py-24">
           <div>
             <p className="font-display text-sm font-semibold uppercase tracking-[0.22em] text-ppa-red">
@@ -354,8 +357,11 @@ export default function MediaPage() {
             <p className="mt-4 text-base leading-relaxed text-ink-muted sm:mt-5 sm:text-lg">
               Tag{" "}
               <span className="font-semibold text-foreground">#PunterPower</span>
-              , then submit your link. We boost the best ones. Every punter can
-              spread the message.
+              , then paste your link below. We boost the best ones. Every
+              punter can spread the message.
+            </p>
+            <p className="mt-4 font-display text-sm font-semibold uppercase tracking-[0.18em] text-ppa-gold">
+              No one left behind. We grow together.
             </p>
             <a
               href="#scripts"
@@ -363,8 +369,11 @@ export default function MediaPage() {
             >
               Back to scripts
             </a>
-            <p className="mt-6 font-display text-sm font-semibold uppercase tracking-[0.18em] text-ppa-gold">
-              Join at punterspower.au
+            <p className="mt-6 text-sm text-ink-muted">
+              Join at{" "}
+              <span className="font-semibold text-foreground">
+                punterspower.au
+              </span>
             </p>
           </div>
           <VideoSubmitForm />
