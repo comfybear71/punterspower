@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PpaLogo } from "@/components/PpaLogo";
 import { PpaImage } from "@/components/media/PpaImage";
 import { assets } from "@/lib/assets";
 
@@ -66,10 +67,10 @@ export default function Home() {
         </div>
 
         <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-20 sm:px-8 sm:pb-20 lg:justify-center lg:pb-24 lg:pt-16">
-          <p className="animate-rise font-display text-sm font-semibold uppercase tracking-[0.28em] text-ppa-gold-soft sm:text-base">
-            Punterspower.au
-          </p>
-          <h1 className="animate-rise-delay-1 mt-4 max-w-4xl font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
+          <div className="animate-rise">
+            <PpaLogo size="xl" priority />
+          </div>
+          <h1 className="animate-rise-delay-1 mt-5 max-w-4xl font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight sm:mt-6 sm:text-7xl lg:text-8xl">
             Punter Power <span className="text-ppa-gold">Australia</span>
           </h1>
           <div className="animate-draw-line mt-5 h-1 w-28 bg-ppa-red sm:w-36" />

@@ -48,9 +48,15 @@ export const assets = {
   },
   ppaLogo: {
     type: "image" as const,
-    src: "/assets/grok-ed3b816d-58f1-49ab-82f2-d9c3a2aae5ea.jpg",
-    alt: "Punter Power Australia logo — grassroots, mates helping mates",
-    caption: "PPA Logo concept",
+    src: "/assets/logo.jpg",
+    alt: "Punter Power Australia logo — kangaroo, raised fist, and PPA",
+    caption: "Official PPA logo — kangaroo + fist + PPA",
+  },
+  ppaTitle: {
+    type: "image" as const,
+    src: "/assets/title.jpg",
+    alt: "Punter Power Australia wordmark",
+    caption: "Punter Power Australia — title mark",
   },
   heroVideo: {
     type: "video" as const,
@@ -76,11 +82,12 @@ export const assets = {
   },
 };
 
-/** Curated Mass Media Power gallery — images first for faster mobile load */
+/** Curated Mass Media Power gallery — logo first as branding ammo */
 export const mediaGalleryItems: PpaMediaAsset[] = [
+  assets.ppaLogo,
+  assets.ppaTitle,
   assets.wooliesColes,
   assets.bulkHacks,
-  assets.ppaLogo,
   assets.shopLocal,
   assets.aldiShopping,
   assets.unitPrice,

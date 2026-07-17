@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   },
   description:
     "Punter Power Australia — a community that grows together. Join for $10. No one left behind. We grow together.",
+  icons: {
+    icon: [{ url: "/assets/logo.jpg", type: "image/jpeg" }],
+    apple: [{ url: "/assets/logo.jpg", type: "image/jpeg" }],
+    shortcut: "/assets/logo.jpg",
+  },
   openGraph: {
     type: "website",
     locale: "en_AU",
@@ -37,10 +42,10 @@ export const metadata: Metadata = {
       "Everyday Aussie punters growing together. Tools, community, transparent fund, and a mass media push — join for $10.",
     images: [
       {
-        url: "/assets/grok-ed3b816d-58f1-49ab-82f2-d9c3a2aae5ea.jpg",
+        url: "/assets/logo.jpg",
         width: 1200,
-        height: 630,
-        alt: "Punter Power Australia — grassroots, mates helping mates",
+        height: 1200,
+        alt: "Punter Power Australia logo — kangaroo, fist, PPA",
       },
     ],
   },
@@ -49,7 +54,7 @@ export const metadata: Metadata = {
     title: "Punter Power Australia | No One Left Behind",
     description:
       "Everyday Aussie punters growing together. Join for $10 at punterspower.au.",
-    images: ["/assets/grok-ed3b816d-58f1-49ab-82f2-d9c3a2aae5ea.jpg"],
+    images: ["/assets/logo.jpg"],
   },
 };
 

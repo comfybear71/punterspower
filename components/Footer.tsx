@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PpaLogo } from "@/components/PpaLogo";
 import { navLinks } from "@/lib/nav";
 
 const footerGroups = [
@@ -44,11 +45,12 @@ export function Footer() {
           <div className="max-w-md">
             <Link
               href="/"
-              className="font-display text-2xl font-bold uppercase tracking-tight text-ppa-gold transition hover:text-ppa-gold-soft"
+              className="inline-block transition hover:opacity-90"
+              aria-label="Punter Power Australia — Home"
             >
-              Punter Power Australia
+              <PpaLogo size="md" withWordmark />
             </Link>
-            <p className="mt-3 text-base leading-relaxed text-ppa-cream/75">
+            <p className="mt-4 text-base leading-relaxed text-ppa-cream/75">
               Everyday Aussie punters looking out for each other — tools,
               community, transparent fund, and a media push built for mates, not
               gatekeepers.
@@ -90,7 +92,10 @@ export function Footer() {
           <p className="text-sm text-ppa-cream/55">
             © {year} Punter Power Australia. All rights reserved.
           </p>
-          <nav aria-label="Footer quick links" className="flex flex-wrap gap-x-4 gap-y-2">
+          <nav
+            aria-label="Footer quick links"
+            className="flex flex-wrap gap-x-4 gap-y-2"
+          >
             {navLinks.slice(0, 5).map((link) => (
               <Link
                 key={link.href}

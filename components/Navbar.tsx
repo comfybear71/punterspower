@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navLinks } from "@/lib/nav";
+import { PpaLogo } from "./PpaLogo";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
@@ -26,14 +27,15 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:h-[4.25rem] sm:px-8">
         <Link
           href="/"
-          className="group flex items-baseline gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ppa-gold"
+          className="group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ppa-gold"
+          aria-label="Punter Power Australia — Home"
         >
-          <span className="font-display text-2xl font-bold uppercase tracking-tight text-ppa-gold transition group-hover:text-ppa-gold-soft">
-            PPA
-          </span>
-          <span className="hidden font-display text-sm font-semibold uppercase tracking-[0.18em] text-ppa-cream/85 sm:inline">
-            Punter Power
-          </span>
+          <PpaLogo
+            size="sm"
+            priority
+            withWordmark
+            wordmarkClassName="group-hover:text-ppa-gold-soft"
+          />
         </Link>
 
         <nav

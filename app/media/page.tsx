@@ -4,10 +4,12 @@ import {
   ContentGenerator,
   mediaPresets,
 } from "@/components/ai/ContentGenerator";
+import { BrandKit } from "@/components/media/BrandKit";
 import { FeaturedExampleVideo } from "@/components/media/FeaturedExampleVideo";
 import { Gallery } from "@/components/media/Gallery";
 import { ScriptCard } from "@/components/media/ScriptCard";
 import { VideoSubmitForm } from "@/components/media/VideoSubmitForm";
+import { PpaLogo } from "@/components/PpaLogo";
 import {
   assets,
   mediaGalleryItems,
@@ -101,7 +103,8 @@ export default function MediaPage() {
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_10%,rgba(193,18,31,0.45),transparent_45%),radial-gradient(ellipse_at_85%_80%,rgba(212,160,23,0.28),transparent_40%),linear-gradient(165deg,#121212_0%,#1a0a0c_50%,#0f3d26_100%)]"
         />
         <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-8 sm:py-20 lg:py-28">
-          <p className="font-display text-xs font-semibold uppercase tracking-[0.28em] text-ppa-gold sm:text-sm">
+          <PpaLogo size="lg" priority />
+          <p className="mt-5 font-display text-xs font-semibold uppercase tracking-[0.28em] text-ppa-gold sm:text-sm">
             Mass Media Power
           </p>
           <h1 className="mt-3 max-w-4xl font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight sm:mt-4 sm:text-6xl lg:text-7xl">
@@ -166,6 +169,8 @@ export default function MediaPage() {
         poster={assets.resourcesExample.poster}
         scriptHref="#script-resources"
       />
+
+      <BrandKit />
 
       {/* Ready Video Scripts */}
       <section
