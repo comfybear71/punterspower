@@ -80,7 +80,7 @@ export function PpaVideo({
           loop={shouldLoop}
           controls={showControls}
           playsInline
-          preload={isAmbient ? "auto" : "metadata"}
+          preload={isAmbient ? "metadata" : "none"}
           aria-label={alt}
         >
           Your browser does not support embedded videos.

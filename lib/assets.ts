@@ -68,7 +68,7 @@ export const assets = {
   },
 };
 
-/** Curated Mass Media Power gallery: images + 2 keeper videos */
+/** Curated Mass Media Power gallery — images first for faster mobile load */
 export const mediaGalleryItems: PpaMediaAsset[] = [
   assets.wooliesColes,
   assets.bulkHacks,
@@ -76,6 +76,10 @@ export const mediaGalleryItems: PpaMediaAsset[] = [
   assets.shopLocal,
   assets.aldiShopping,
   assets.unitPrice,
+];
+
+/** Optional clips — loaded only where needed, preload none */
+export const mediaGalleryVideos: PpaMediaAsset[] = [
   assets.clipCheckout,
   assets.heroVideo,
 ];

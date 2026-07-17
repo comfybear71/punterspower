@@ -19,12 +19,37 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://punterspower.au"),
   title: {
     default: "Punter Power Australia | No One Left Behind",
     template: "%s | Punter Power Australia",
   },
   description:
-    "Punter Power Australia — a community that grows together. Join for $10. No one left behind.",
+    "Punter Power Australia — a community that grows together. Join for $10. No one left behind. We grow together.",
+  openGraph: {
+    type: "website",
+    locale: "en_AU",
+    url: "https://punterspower.au",
+    siteName: "Punter Power Australia",
+    title: "Punter Power Australia | No One Left Behind",
+    description:
+      "Everyday Aussie punters growing together. Tools, community, transparent fund, and a mass media push — join for $10.",
+    images: [
+      {
+        url: "/assets/grok-ed3b816d-58f1-49ab-82f2-d9c3a2aae5ea.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Punter Power Australia — grassroots, mates helping mates",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Punter Power Australia | No One Left Behind",
+    description:
+      "Everyday Aussie punters growing together. Join for $10 at punterspower.au.",
+    images: ["/assets/grok-ed3b816d-58f1-49ab-82f2-d9c3a2aae5ea.jpg"],
+  },
 };
 
 const themeInitScript = `
