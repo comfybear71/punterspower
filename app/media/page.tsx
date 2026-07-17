@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  ContentGenerator,
+  mediaPresets,
+} from "@/components/ai/ContentGenerator";
 import { Gallery } from "@/components/media/Gallery";
 import { VideoSubmitForm } from "@/components/media/VideoSubmitForm";
 import { mediaGalleryItems } from "@/lib/assets";
@@ -435,8 +439,21 @@ export default function MediaPage() {
         </div>
       </section>
 
+      {/* AI Generate Content */}
+      <section id="generate" className="scroll-mt-24 border-t border-line bg-surface">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <ContentGenerator
+            presets={mediaPresets}
+            eyebrow="AI content tool"
+            title="Generate your clip script"
+            description="Pick Grok, DeepSeek, or Claude. Get a raw, no-BS script or meme idea for the media push — always with no one left behind, we grow together."
+            defaultProvider="grok"
+          />
+        </div>
+      </section>
+
       {/* CTA + form */}
-      <section id="submit" className="scroll-mt-24 bg-surface">
+      <section id="submit" className="scroll-mt-24 bg-surface-muted">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-14 lg:py-24">
           <div>
             <p className="font-display text-sm font-semibold uppercase tracking-[0.22em] text-ppa-red">
@@ -450,12 +467,20 @@ export default function MediaPage() {
               <span className="font-semibold text-foreground">#PunterPower</span>
               , send the link to PPA — we&apos;ll boost the best ones.
             </p>
-            <a
-              href="#film-now"
-              className="mt-8 inline-flex min-h-14 items-center justify-center bg-ppa-red px-8 text-base font-bold uppercase tracking-wide text-ppa-cream transition hover:bg-[#a50e19]"
-            >
-              Film Your Video Now
-            </a>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#film-now"
+                className="inline-flex min-h-14 items-center justify-center bg-ppa-red px-8 text-base font-bold uppercase tracking-wide text-ppa-cream transition hover:bg-[#a50e19]"
+              >
+                Film Your Video Now
+              </a>
+              <a
+                href="#generate"
+                className="inline-flex min-h-14 items-center justify-center bg-ppa-gold px-8 text-base font-bold uppercase tracking-wide text-[#121212] transition hover:bg-ppa-gold-soft"
+              >
+                Generate a script
+              </a>
+            </div>
             <p className="mt-8 font-display text-sm font-semibold uppercase tracking-[0.18em] text-ppa-gold">
               Every punter can spread the message
             </p>

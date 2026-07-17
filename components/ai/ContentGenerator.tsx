@@ -9,7 +9,12 @@ import {
 } from "@/lib/ai/models";
 import { ProviderSelect } from "./ProviderSelect";
 
-const presets: { contentType: ContentType; prompt: string }[] = [
+export type ContentPreset = {
+  contentType: ContentType;
+  prompt: string;
+};
+
+const defaultPresets: ContentPreset[] = [
   {
     contentType: "story",
     prompt: "Create a relatable story about medical gaps",
@@ -32,10 +37,53 @@ const presets: { contentType: ContentType; prompt: string }[] = [
   },
 ];
 
-export function ContentGenerator() {
-  const [provider, setProvider] = useState<LlmProvider>("claude");
-  const [contentType, setContentType] = useState<ContentType>("story");
-  const [input, setInput] = useState(presets[0].prompt);
+export const mediaPresets: ContentPreset[] = [
+  {
+    contentType: "video-script",
+    prompt:
+      "Write a 30-second phone-to-camera script about Woolies & Coles prices. End with Join at punterspower.au — No one left behind. Tag #PunterPower.",
+  },
+  {
+    contentType: "video-script",
+    prompt:
+      "15–45s script on Flock cameras / ANPR — factual, angry but actionable, close with We grow together.",
+  },
+  {
+    contentType: "meme",
+    prompt: "Meme concept about energy bill shock for Aussie households",
+  },
+  {
+    contentType: "image-prompt",
+    prompt:
+      "Generate an image prompt for a PPA media-push thumbnail about local shopping power",
+  },
+  {
+    contentType: "story",
+    prompt:
+      "Short relatable story about medical gaps that a punter could turn into a 60s video",
+  },
+];
+
+type ContentGeneratorProps = {
+  presets?: ContentPreset[];
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  defaultProvider?: LlmProvider;
+};
+
+export function ContentGenerator({
+  presets = defaultPresets,
+  eyebrow = "Generate content",
+  title = "PPA content studio",
+  description = "Spin up stories, image prompts, scripts, memes, and guide outlines — always tied to no one left behind, we grow together.",
+  defaultProvider = "claude",
+}: ContentGeneratorProps) {
+  const [provider, setProvider] = useState<LlmProvider>(defaultProvider);
+  const [contentType, setContentType] = useState<ContentType>(
+    presets[0]?.contentType ?? "video-script",
+  );
+  const [input, setInput] = useState(presets[0]?.prompt ?? "");
 
   const body = useMemo(
     () => ({ provider, contentType }),
@@ -66,15 +114,12 @@ export function ContentGenerator() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="font-display text-sm font-semibold uppercase tracking-[0.22em] text-ppa-red">
-            Generate content
+            {eyebrow}
           </p>
           <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-tight sm:text-4xl">
-            PPA content studio
+            {title}
           </h2>
-          <p className="mt-3 max-w-2xl text-base text-ink-muted">
-            Spin up stories, image prompts, scripts, memes, and guide outlines —
-            always tied to no one left behind, we grow together.
-          </p>
+          <p className="mt-3 max-w-2xl text-base text-ink-muted">{description}</p>
         </div>
       </div>
 
@@ -116,13 +161,13 @@ export function ContentGenerator() {
           </label>
           <div>
             <span className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
-              Model
+              Model — Grok, DeepSeek, or Claude
             </span>
             <ProviderSelect
               value={provider}
               onChange={setProvider}
               className="mt-2"
-              id="generate-provider"
+              id={`generate-provider-${title.replace(/\s+/g, "-").toLowerCase()}`}
             />
           </div>
         </div>
@@ -163,7 +208,7 @@ export function ContentGenerator() {
 
       {error && (
         <p className="mt-4 border border-ppa-red/40 bg-ppa-red/10 px-3 py-2 text-sm text-ppa-red">
-          {error.message || "Generation failed. Check API keys in .env.local."}
+          {error.message || "Generation failed. Check API keys in .env.local / Vercel."}
         </p>
       )}
 

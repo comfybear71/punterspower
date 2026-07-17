@@ -66,13 +66,6 @@ export const assets = {
     alt: "Campaign clip about supermarket prices",
     caption: "Checkout reality check",
   },
-  clipSurveillance: {
-    type: "video" as const,
-    src: "/assets/grok-video-b7f94e16-cdc6-4a69-aa12-f933a034b666.mp4",
-    poster: "/assets/grok-ed3b816d-58f1-49ab-82f2-d9c3a2aae5ea.jpg",
-    alt: "Campaign clip on systems watching everyday Aussies",
-    caption: "They're watching. We're paying.",
-  },
   clipResources: {
     type: "video" as const,
     src: "/assets/grok-video-d00cb6ae-ae82-42ac-8300-e21d859a50da.mp4",
@@ -86,13 +79,6 @@ export const assets = {
     poster: "/assets/grok-23e2e4c1-691b-4024-8cfa-292ee59f2884.jpg",
     alt: "Campaign clip on supermarket duopoly",
     caption: "Duopoly dollars vs family budgets",
-  },
-  clipLocal: {
-    type: "video" as const,
-    src: "/assets/grok-video-b5f4686d-98d3-4df7-a73a-cbd02662494d.mp4",
-    poster: "/assets/grok-551ee6c2-4059-4ff8-a8c3-579160b6534e.jpg",
-    alt: "Campaign clip about shopping local",
-    caption: "Local markets over mega aisles",
   },
   clipPower: {
     type: "video" as const,
@@ -119,5 +105,5 @@ export const mediaGalleryItems: PpaMediaAsset[] = [
   assets.aldiShopping,
   assets.unitPrice,
   assets.clipCheckout,
-  assets.clipLocal,
+  assets.clipDuopoly,
 ];
