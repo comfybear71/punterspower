@@ -10,11 +10,7 @@ import {
   type LlmProvider,
 } from "@/lib/ai/models";
 import { buildContentSystemPrompt } from "@/lib/ai/prompts";
-import {
-  getLanguageModel,
-  getProviderApiKeyName,
-  hasProviderKey,
-} from "@/lib/ai/providers";
+import { getLanguageModel, hasProviderKey } from "@/lib/ai/providers";
 
 export const maxDuration = 60;
 
@@ -40,7 +36,7 @@ export async function POST(req: Request) {
     if (!hasProviderKey(provider)) {
       return Response.json(
         {
-          error: `Add ${getProviderApiKeyName(provider)} to .env.local to generate with ${provider}.`,
+          error: `${provider} is unavailable right now. Try another model.`,
         },
         { status: 503 },
       );

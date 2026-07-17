@@ -208,7 +208,7 @@ export function ContentGenerator({
 
       {error && (
         <p className="mt-4 border border-ppa-red/40 bg-ppa-red/10 px-3 py-2 text-sm text-ppa-red">
-          {error.message || "Generation failed. Check API keys in .env.local / Vercel."}
+          {error.message || "Generation failed. Try again in a moment."}
         </p>
       )}
 

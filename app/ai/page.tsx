@@ -22,14 +22,6 @@ export default function AiPage() {
           <div className="h-[min(70vh,720px)] overflow-hidden border border-line">
             <ChatPanel />
           </div>
-          <p className="mt-4 text-sm text-ink-muted">
-            Tip: add your keys to{" "}
-            <code className="text-foreground">.env.local</code> (
-            <code className="text-foreground">XAI_API_KEY</code>,{" "}
-            <code className="text-foreground">DEEPSEEK_API_KEY</code>,{" "}
-            <code className="text-foreground">ANTHROPIC_API_KEY</code>) then
-            restart the dev server.
-          </p>
         </div>
       </section>
     </div>
